@@ -1,0 +1,33 @@
+
+.image-container{
+    width: 90%;
+    margin: 0 auto 30px auto;
+}
+.image-container img{
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 400px;
+    margin: auto;
+}
+figcaption{
+    margin: 20px 0 30px 0;
+    text-align: center;
+    color: #2a292a;
+}
+input[type="file"]{
+    display: none;
+}
+label{
+    display: block;
+    position: relative;
+    background-color: #00a6ff;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    width: 300px;
+    padding: 18px 0;
+    border-radius: 5px;
+    margin: auto;
+    cursor: pointer;
+}
