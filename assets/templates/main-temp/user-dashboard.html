@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Alazea - Gardening &amp; Landscaping HTML Template</title>
+    <link rel="icon" href=" {% static 'main-static/img/core-img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'main-static/css/style.css' %}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>swal({
+                title: "Success!",
+                text: "{{message}}",
+                icon: "success",
+                button: "OK",
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <script>swal({
+                title: "Warning :)",
+                text: "{{message}}",
+                icon: "warning",
+                button: "OK",
+            
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <script>swal({
+                title: "info :)",
+                text: "{{message}}",
+                icon: "info",
+                button: "OK",
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>swal({
+                title: "error :)",
+                text: "{{message}}",
+                icon: "error",
+                button: "OK",
+            });
+        </script>
+        
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    <header class="header-area">
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+                        <a href="" class="nav-brand"><img src=" {% static 'main-static/img/core-img/logomain.png' %}"></a>
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <div class="classy-menu">
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'user_dashboard' %}">Dashboard</a></li>
+                                    <li><a href="{% url 'user_plantdd' %}">Plant Disease Detection</a></li>
+                                    <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search"
+                                placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="breadcrumb-area">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image: url(static/main-static/img/bg-img/24.jpg);">
+            <h2>User Dashboard</h2>
+        </div>
+    </div>
+    <div style="margin-top: 100px;"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+        
+            <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Powdery Mildew</h5>
+                                <h2 class="card-title">{{i}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Healthy</h5>
+                                <h2 class="card-title">{{j}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Scab</h5>
+                                <h2 class="card-title">{{k}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;" >
+                    <div class="row g-0 ">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Black Rot</h5>
+                                <h2 class="card-title">{{l}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;" >
+                    <div class="row g-0 ">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Cedar rust</h5>
+                                <h2 class="card-title">{{m}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;" >
+                    <div class="row g-0 ">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Septoria Leaf Spot</h5>
+                                <h2 class="card-title">{{n}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-3">
+                <div class="card mb-3 px-4" style="max-width: 540px;" >
+                    <div class="row g-0 ">
+                        <div class="col-md-4 align-self-center">
+                            <img src="{% static 'main-static/img/core-img/b1.png ' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 align-self-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Cercospora Leaf Spot | Gray Leaf Spot</h5>
+                                <h2 class="card-title">{{o}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <div style="margin-bottom: 100px;"></div>
+    <footer class="footer-area bg-img" style="background-image: url(static/main-static/img/bg-img/3.jpg);">
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 mx-4">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                            </div>
+                            <p>Lorem ipsum dolor sit samet, consectetur adipiscing elit. India situs atione mantor</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 mx-4">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+                            <div class="contact-information">
+                                <p><span>Address:</span> #2nd Floor, Siris Rd, Near L.B Nagar Metro Station Pillar No
+                                    A1662, Snehapuri Colony, Hyderabad, Telangana 500074
+                                </p>
+                                <p><span>Phone:</span> +91 8555 8879 86 <br>+91 9912 2210 87</p>
+                                <p><span>Email:</span> info@codebook.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-text">
+                            <p>This template is made with by <a href="https://www.codebook.com"
+                                    target="_blank">CodeBook</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">User Login</a></li>
+                                    <li><a href="#">Admin Login</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src=" {% static 'main-static/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/bootstrap/popper.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/plugins/plugins.js' %}"></script>
+    <script src=" {% static 'main-static/js/active.js' %}"></script>
+</body>
+</html>

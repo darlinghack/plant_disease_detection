@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Alazea - Gardening &amp; Landscaping HTML Template</title>
+    <link rel="icon" href=" {% static 'main-static/img/core-img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'main-static/css/style.css' %}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>swal({
+                title: "Success!",
+                text: "{{message}}",
+                icon: "success",
+                button: "OK",
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <script>swal({
+                title: "Warning :)",
+                text: "{{message}}",
+                icon: "warning",
+                button: "OK",
+            
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <script>swal({
+                title: "info :)",
+                text: "{{message}}",
+                icon: "info",
+                button: "OK",
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>swal({
+                title: "error :)",
+                text: "{{message}}",
+                icon: "error",
+                button: "OK",
+            });
+        </script>
+        
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+    <header class="header-area">
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+                        <a href="" class="nav-brand"><img src="img/core-img/logomain.png" alt=""></a>
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <div class="classy-menu">
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'user_login' %}">User Login</a></li>
+                                    <li><a href="{% url 'admin_login' %}">Admin Login</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="breadcrumb-area">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
+            <h2>User Register</h2>
+        </div>
+    </div>
+    <div style="margin-top: 100px;"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-md-6 align-items-center">
+                <div class="about_thumb">
+                    <img class="img-fluid" src=" {% static 'main-static/img/img3.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-xl-9 col-md-6">
+                <div class="text-center">
+                    <h1>User Register</h1>
+                </div>
+                <div style="margin: 100px;">
+                    <form class="row" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="firstname">First name</h4>
+                            <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="name"
+                                placeholder="enter firstname">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="lastname">Last Name</h4>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="enter lastname">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="email">Email ID</h4>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="phone">Phone Number</h4>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="9xxxxxxxxx">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="city">Age</h4>
+                            <input type="text" class="form-control" id="age" name="age" placeholder="enter city">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="city">City</h4>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="enter city">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="city">Password</h4>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="enter city">
+                        </div>
+                        <div class="col-6 my-2">
+                            <h4 class="mt-2 my-2" for="picture">Picture</h4>
+                            <input type="file" class="form-control" id="pic" name="pic">
+                        </div>
+                        <div class="col text-center my-4">
+                            <button class="btn btn-success text-white" type="submit" onclick="return validate() ">Register</button>
+                        </div><br>
+                        <div class="col-12 text-center ">
+                            <p class="col-12 text-center">(Already have a account)</p>
+                            <a class="btn btn-secondary" href="{% url 'user_login' %}">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 100px;"></div>
+    <footer class="footer-area bg-img" style="background-image: url(static/main-static/img/bg-img/24.jpg);">
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 mx-4">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                            </div>
+                            <p>Lorem ipsum dolor sit samet, consectetur adipiscing elit. India situs atione mantor</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 mx-4">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>Address:</span> #2nd Floor, Siris Rd, Near L.B Nagar Metro Station Pillar No A1662, Snehapuri Colony, Hyderabad, Telangana 500074
+                                    </p>
+                                <p><span>Phone:</span> +91 8555 8879 86 <br>+91 9912 2210 87</p>
+                                <p><span>Email:</span> info@codebook.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-text">
+                            <p>This template is made with by <a href="https://www.codebook.com" target="_blank">CodeBook</a></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">User Login</a></li>
+                                    <li><a href="#">Admin Login</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function validate() {
+            var firstname = document.getElementById("firstname");
+            var lastname = document.getElementById("lastname");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+            var city = document.getElementById("city");
+            var age = document.getElementById("age");
+            var pic = document.getElementById("pic");
+            var password = document.getElementById("password");
+
+            if (firstname.value.trim() == "") {
+                alert("Fill the firstname")
+                return false;
+            }
+            if (lastname.value.trim() == "") {
+                alert("Fill the lastname")
+                return false;
+            }
+            if (email.value.trim() == "") {
+                alert("Fill the email")
+                return false;
+            }
+            if (phone.value.trim() == "") {
+                alert("Fill the phone")
+                return false;
+            }
+            if (age.value.trim() == "") {
+                alert("Fill the age")
+                return false;
+            }
+            if (city.value.trim() == "") {
+                alert("Fill the city")
+                return false;
+            }
+            if (pic.value.trim() == "") {
+                alert("choose the pic")
+                return false;
+            }
+            if (password.value.trim() == "") {
+                alert("Fill the password")
+                return false;
+            }
+            if (password.value.length < 8) {
+                alert("password is too short")
+                return false;
+            }
+            else {
+                true;
+            }
+        }
+    </script>
+    <script src=" {% static 'main-static/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/bootstrap/popper.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src=" {% static 'main-static/js/plugins/plugins.js' %}"></script>
+    <script src=" {% static 'main-static/js/active.js' %}"></script>
+</body>
+</html>
